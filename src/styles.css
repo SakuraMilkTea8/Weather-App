@@ -1,0 +1,65 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin-top: 30px;
+  background-color: #fffcfc;
+}
+
+.weather-in {
+  font-family: "Cairo", sans-serif;
+  font-size: 22px;
+  text-align: center;
+}
+
+.enter-name {
+  background-color: #ffeffb;
+}
+
+.peak-button .current-location-button {
+  border-radius: 10px;
+}
+
+.this-week {
+  font-size: 29px;
+  max-width: 288px;
+  text-align: center;
+  right: 42px;
+}
+
+.week-weather {
+  color: #88ccff;
+}
+
+.card-left {
+  display: block;
+  margin: 0 auto;
+}
+
+.card-right {
+  margin-top: 40px;
+}
+
+.current-weather {
+  font-size: 50px;
+  max-width: 288px;
+  text-align: center;
+  margin: 0;
+  color: #88ccff;
+  margin-top: 20px;
+}
+
+.box,
+li {
+  text-align: center;
+  font-size: 23px;
+}
+
+img {
+  max-width: 288px;
+  margin-top: 20px;
+}
+
+.extra-info {
+  margin-top: 30px;
+  max-width: 288px;
+  text-align: center;
+}
