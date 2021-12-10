@@ -73,21 +73,25 @@
           <div class="card" style="width: 18rem">
             <span class="border border-3">
               <p class="card-text box">
-                <span id="current-city">Tokyo</span>
+                <span id="last-updated">Last Updated <span id="current-time">#</span></span>
                 <br />
-                <span id="current-time">#</span>
+                <span id="current-city"># (Tokyo)</span>
+                <br />
+                <span id="weather-description"># (Cloudy)</span>
               </p>
           </div>
 
-         <p class=current-weather><span id="current-temperature">18</span><span id="temperature-icons"> <a href="#"> °C</a> | <a href="#">°F</a></span></p>
+         <p class=current-weather><span id="current-temperature">18</span><span id="temperature-icons"> <a href="#" id="celcius"> °C</a> | <a href="#" id="fahrenheit">°F</a></span></p>
          <img
             src="https://images.pexels.com/photos/158163/clouds-cloudporn-weather-lookup-158163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             class="card-img-top rounded-pill"
-            alt="Image of current weather (sunny, windy, rainy, snowy, etc."
+            alt="Image of current weather (sunny, windy, rainy, snowy, etc.)"
+            id="weather-icon"
           />
-          <div class="border border-1 extra-info">
-            Feels Like 🎐 <span id="feels-like">10</span>°C <br>
-            Humidity 💧 <span id="humidity">87</span>% 
+          <div class="border border-4 extra-info">
+            Feels Like 🎐 <span id="feels-like">#</span> °C <br />
+            Humidity 💧 <span id="humidity">#</span> % <br />
+            Wind Speed 🌬️ <span id="wind-speed">#</span> km/H
           </div>
         </div>
       </div>
