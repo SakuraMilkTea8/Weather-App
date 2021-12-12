@@ -24,24 +24,24 @@ today.innerHTML = `${weekday}  ${hour}:${minutes}`;
 
 function showTemperature(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
-<<<<<<< Updated upstream
-  document.querySelector("#current-temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
-=======
   celciusTemperature = response.data.main.temp;
   document.querySelector("#current-temperature").innerHTML =
     Math.round(celciusTemperature);
   document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].description;
->>>>>>> Stashed changes
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.main.feels_like
   );
-  document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
-  document.querySelector("#weather-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document
+    .querySelector("#weather-icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 
 function chooseCity(event) {
@@ -69,10 +69,6 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-<<<<<<< Updated upstream
-//
-let celciusTemperature = response.data.main.temp;
-=======
 function showFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temperature");
@@ -89,19 +85,15 @@ function showCelciusTemperature(event) {
   celciusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
 }
->>>>>>> Stashed changes
 
 function showFahrenheitTemperature(event) {
-event.preventDefault();
-let temperaturElement = document.querySelector("#current-temperature");
-let fahrenheitTemperature = (celciusTemperature * 9 / 5) + 32;
-temperaturElement.innerHTML = Math.round(fahrenheitTemperature);
+  event.preventDefault();
+  let temperaturElement = document.querySelector("#current-temperature");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperaturElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
-<<<<<<< Updated upstream
-fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
-=======
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 let celciusLink = document.querySelector("#celcius");
@@ -116,4 +108,3 @@ cityChoice.addEventListener("submit", chooseCity);
 let chosenCity = document.querySelector("#enter-city");
 
 loadCity("Montréal");
->>>>>>> Stashed changes
