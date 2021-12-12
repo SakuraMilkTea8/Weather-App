@@ -89,9 +89,12 @@ li {
   font-size: 23px;
 }
 
-img {
+#image {
   max-width: 288px;
-  margin-top: 20px;
+}
+img {
+  display: block;
+  margin: 0 auto;
 }
 
 .extra-info {
