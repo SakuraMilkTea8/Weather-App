@@ -24,10 +24,18 @@ today.innerHTML = `${weekday}  ${hour}:${minutes}`;
 
 function showTemperature(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
+<<<<<<< Updated upstream
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
+=======
+  celciusTemperature = response.data.main.temp;
+  document.querySelector("#current-temperature").innerHTML =
+    Math.round(celciusTemperature);
+  document.querySelector("#weather-description").innerHTML =
+    response.data.weather[0].description;
+>>>>>>> Stashed changes
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.main.feels_like
@@ -61,8 +69,27 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
+<<<<<<< Updated upstream
 //
 let celciusTemperature = response.data.main.temp;
+=======
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
+
+function showCelciusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
+>>>>>>> Stashed changes
 
 function showFahrenheitTemperature(event) {
 event.preventDefault();
@@ -72,4 +99,21 @@ temperaturElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
+<<<<<<< Updated upstream
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+=======
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener("click", showCelciusTemperature);
+
+let celciusTemperature = null;
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+let cityChoice = document.querySelector("form");
+cityChoice.addEventListener("submit", chooseCity);
+let chosenCity = document.querySelector("#enter-city");
+
+loadCity("Montréal");
+>>>>>>> Stashed changes
