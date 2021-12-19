@@ -5,7 +5,7 @@ body {
 }
 
 #container {
-  max-width: 865px;
+  max-width: 680px;
   margin: 0 auto;
   border: 4px solid;
   border-color: rgb(159, 159, 159);
@@ -30,13 +30,23 @@ body {
 .this-week {
   font-size: 29px;
   max-width: 288px;
-  text-align: center;
-  right: 42px;
+  margin-left: 63px;
+}
+
+#left-side {
+max-width: 288px;
+display: block;
+margin: 0 auto;
+}
+
+#right-side {
+max-width: 288px;
+display: block;
+margin: 0 auto;
 }
 
 .week-weather {
   color: #88ccff;
-  margin: 0 auto;
 }
 
 .card-right {

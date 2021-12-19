@@ -24,19 +24,19 @@
         Weather in...
         <input class="enter-name" type="text" placeholder="Enter a city name" autofocus="on" autocomplete="off" id="enter-city" />
         <input type="submit" value="Take a peak!" class="peak-button" />
-        <input type="submit" value="Current Location" id="current-location-button" />
+        <input type="submit" value="Here📍" id="current-location-button" />
         </div>
       </form>
 
       <br />
 
       <div class="row">
-        <div class="col-6 week-forecast">
+        <div class="col-6">
           <span class="this-week">For This Week</span>
-
+<div id="left-side">
           <div class="card" style="width: 18rem">
             <span class="border border-3">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group">
               <li class="list-group-item">
                 Tomorrow <br />
                 <span class="week-weather">21°C 🌦</span>
@@ -64,12 +64,13 @@
             </ul>
             </span>
           </div>
+</div>
            <span id="footnote">This page is <a href="https://github.com/SakuraMilkTea8/Weather-App">Open-source</a></span>
         </div>
        
 
        <div class="col-6 current-city card-right">
-
+<div id="right-side">
           <div class="card" style="width: 18rem">
             <span class="border border-3">
               <p class="card-text box">
@@ -95,6 +96,7 @@
             Wind Speed 🌬️ <span id="wind-speed"></span> km/H
           </div>
         </div>
+</div>
       </div>
      </div>
 </div>
