@@ -31,32 +31,63 @@ function displayForecast(response) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.daily[0].weather[0].icon}@2x.png`
     );
+
   // day two
   document.querySelector("#weather-daytwo").innerHTML = Math.round(
     response.data.daily[1].feels_like.day
   );
+  document
+    .querySelector("#weather-icon-daytwo")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.daily[1].weather[0].icon}@2x.png`
+    );
 
   // day three
   document.querySelector("#weather-daythree").innerHTML = Math.round(
     response.data.daily[2].feels_like.day
   );
+  document
+    .querySelector("#weather-icon-daythree")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.daily[2].weather[0].icon}@2x.png`
+    );
 
   // day four
   document.querySelector("#weather-dayfour").innerHTML = Math.round(
     response.data.daily[3].feels_like.day
   );
+  document
+    .querySelector("#weather-icon-dayfour")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.daily[3].weather[0].icon}@2x.png`
+    );
 
   // day five
   document.querySelector("#weather-dayfive").innerHTML = Math.round(
     response.data.daily[4].feels_like.day
   );
+  document
+    .querySelector("#weather-icon-dayfive")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.daily[4].weather[0].icon}@2x.png`
+    );
 
   // day six
   document.querySelector("#weather-daysix").innerHTML = Math.round(
     response.data.daily[5].feels_like.day
   );
+  document
+    .querySelector("#weather-icon-daysix")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.daily[5].weather[0].icon}@2x.png`
+    );
 
-  console.log(response.data.daily[0].weather[0].icon);
+  console.log(response.data);
 }
 
 function getForecast(coordinates) {

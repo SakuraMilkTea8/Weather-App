@@ -53,6 +53,17 @@ body {
   color: rgb(159, 159, 159);
 }
 
+#weather-icon-tomorrow,
+#weather-icon-daytwo,
+#weather-icon-daythree,
+#weather-icon-dayfour,
+#weather-icon-dayfive,
+#weather-icon-daysix {
+  max-width: 40px;
+  display: inline;
+  margin: 0;
+}
+
 .card-right {
   margin-top: 40px;
 }
