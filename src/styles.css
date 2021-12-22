@@ -34,19 +34,23 @@ body {
 }
 
 #left-side {
-max-width: 288px;
-display: block;
-margin: 0 auto;
+  max-width: 288px;
+  display: block;
+  margin: 0 auto;
 }
 
 #right-side {
-max-width: 288px;
-display: block;
-margin: 0 auto;
+  max-width: 288px;
+  display: block;
+  margin: 0 auto;
 }
 
 .week-weather {
   color: #88ccff;
+}
+
+.week-weather-c {
+  color: rgb(159, 159, 159);
 }
 
 .card-right {

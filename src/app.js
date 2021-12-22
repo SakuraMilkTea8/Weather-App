@@ -20,6 +20,52 @@ if (minutes < 10) {
 }
 today.innerHTML = `${weekday}  ${hour}:${minutes}`;
 
+function displayForecast(response) {
+  // tomorrow
+  document.querySelector("#weather-tomorrow").innerHTML = Math.round(
+    response.data.daily[0].feels_like.day
+  );
+  document
+    .querySelector("#weather-icon-tomorrow")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.daily[0].weather[0].icon}@2x.png`
+    );
+  // day two
+  document.querySelector("#weather-daytwo").innerHTML = Math.round(
+    response.data.daily[1].feels_like.day
+  );
+
+  // day three
+  document.querySelector("#weather-daythree").innerHTML = Math.round(
+    response.data.daily[2].feels_like.day
+  );
+
+  // day four
+  document.querySelector("#weather-dayfour").innerHTML = Math.round(
+    response.data.daily[3].feels_like.day
+  );
+
+  // day five
+  document.querySelector("#weather-dayfive").innerHTML = Math.round(
+    response.data.daily[4].feels_like.day
+  );
+
+  // day six
+  document.querySelector("#weather-daysix").innerHTML = Math.round(
+    response.data.daily[5].feels_like.day
+  );
+
+  console.log(response.data.daily[0].weather[0].icon);
+}
+
+function getForecast(coordinates) {
+  let apiKey = "5bd1b9f8ce5a0967981cb74bc5f85a4a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  // &exclude={part}
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemperature(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
   celciusTemperature = response.data.main.temp;
@@ -34,11 +80,14 @@ function showTemperature(response) {
   document.querySelector("#wind-speed").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#weather-icon").setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png
-    `
-  );
+  document
+    .querySelector("#weather-icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+
+  getForecast(response.data.coord);
 }
 
 function chooseCity(event) {
