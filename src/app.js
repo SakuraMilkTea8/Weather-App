@@ -1,14 +1,6 @@
 let now = new Date();
 let today = document.querySelector("#current-time");
-let weekdays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let weekday = weekdays[now.getDay()];
 let hour = now.getHours();
 if (hour < 10) {
@@ -86,8 +78,6 @@ function displayForecast(response) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.daily[5].weather[0].icon}@2x.png`
     );
-
-  console.log(response.data);
 }
 
 function getForecast(coordinates) {
