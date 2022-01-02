@@ -84,7 +84,6 @@ function displayForecast(response) {
   });
 }
 
-//
 function displayForecastFahrenheit(response) {
   // tomorrow
   document.querySelector("#weather-tomorrow").innerHTML = Math.round(
@@ -157,7 +156,6 @@ function displayForecastFahrenheit(response) {
     element.innerHTML = "°F";
   });
 }
-//
 
 function getForecast(coordinates) {
   let apiKey = "5bd1b9f8ce5a0967981cb74bc5f85a4a";
@@ -231,6 +229,8 @@ function chooseCity(event) {
   let apiKey = "5bd1b9f8ce5a0967981cb74bc5f85a4a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 function loadCity(city) {
@@ -244,7 +244,10 @@ function searchLocation(position) {
   let apiKey = "5bd1b9f8ce5a0967981cb74bc5f85a4a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
+
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
