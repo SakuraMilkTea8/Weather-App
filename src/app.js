@@ -78,11 +78,14 @@ function displayForecast(response) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.daily[5].weather[0].icon}@2x.png`
     );
+  let weekTempF = document.querySelectorAll(".week-weather-c");
+  weekTempF.forEach((element) => {
+    element.innerHTML = "°C";
+  });
 }
 
 //
 function displayForecastFahrenheit(response) {
-  console.log(response);
   // tomorrow
   document.querySelector("#weather-tomorrow").innerHTML = Math.round(
     response.data.daily[0].feels_like.day
@@ -148,12 +151,23 @@ function displayForecastFahrenheit(response) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.daily[5].weather[0].icon}@2x.png`
     );
+
+  let weekTempC = document.querySelectorAll(".week-weather-c");
+  weekTempC.forEach((element) => {
+    element.innerHTML = "°F";
+  });
 }
 //
 
 function getForecast(coordinates) {
   let apiKey = "5bd1b9f8ce5a0967981cb74bc5f85a4a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function getForecastCelcius(response) {
+  let apiKey = "5bd1b9f8ce5a0967981cb74bc5f85a4a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -181,11 +195,9 @@ function showTemperature(response) {
   getForecast(response.data.coord);
 }
 
-//Fahrenheit??
 function getForecastFahrenheit(response) {
   let apiKey = "5bd1b9f8ce5a0967981cb74bc5f85a4a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&appid=${apiKey}&units=imperial`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecastFahrenheit);
 }
 
@@ -212,7 +224,6 @@ function showTemperatureFahrenheit(response) {
 
   getForecastFahrenheit(response.data.coord);
 }
-//
 
 function chooseCity(event) {
   event.preventDefault();
@@ -241,18 +252,13 @@ function getCurrentLocation(event) {
 
 function showFahrenheitTemperature(event) {
   event.preventDefault();
+  //current temp
   let temperatureElement = document.querySelector("#current-temperature");
   let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   celciusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-
-  let weekTempC = document.querySelectorAll(".week-weather-c");
-  weekTempC.forEach((element) => {
-    element.innerHTML = "°F";
-  });
-
-  // call a function that will show F temp forecast
+  //week forecast
   let chosenCity = document.querySelector("#current-city").innerHTML;
   let apiKey = "5bd1b9f8ce5a0967981cb74bc5f85a4a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&appid=${apiKey}&units=imperial`;
@@ -261,15 +267,16 @@ function showFahrenheitTemperature(event) {
 
 function showCelciusTemperature(event) {
   event.preventDefault();
+  //current temp
   let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = Math.round(celciusTemperature);
   celciusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
-
-  let weekTempF = document.querySelectorAll(".week-weather-c");
-  weekTempF.forEach((element) => {
-    element.innerHTML = "°C";
-  });
+  //week forecast
+  let chosenCity = document.querySelector("#current-city").innerHTML;
+  let apiKey = "5bd1b9f8ce5a0967981cb74bc5f85a4a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(getForecastCelcius);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
