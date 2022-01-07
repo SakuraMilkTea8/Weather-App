@@ -228,7 +228,12 @@ function chooseCity(event) {
   let chosenCity = document.querySelector("#enter-city").value;
   let apiKey = "5bd1b9f8ce5a0967981cb74bc5f85a4a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
+  axios
+    .get(apiUrl)
+    .then(showTemperature)
+    .catch(function (error) {
+      alert("Oops! Make sure to type a valid city name!");
+    });
   celciusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
 }
